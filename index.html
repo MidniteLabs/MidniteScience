@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title> Science Documents </title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: #f0f4f8;
+        margin: 0;
+        padding: 0;
+    }
+    header {
+        background: #1f2937;
+        color: white;
+        padding: 20px;
+        text-align: center;
+    }
+    .container {
+        padding: 20px;
+        max-width: 900px;
+        margin: auto;
+    }
+    input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        font-size: 16px;
+    }
+    .doc-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 15px;
+    }
+    .doc-card {
+        background: white;
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+        text-align: center;
+        transition: transform 0.2s;
+    }
+    .doc-card:hover {
+        transform: scale(1.05);
+    }
+    a {
+        text-decoration: none;
+        color: #1f2937;
+        font-weight: bold;
+    }
+</style>
+</head>
+<body>
+
+<header>
+    <h1>Science Documents</h1>
+    <p>Search and explore my collection of science resources</p>
+</header>
+
+<div class="container">
+    <input type="text" id="search" placeholder="Search documents..." onkeyup="filterDocs()">
+
+<div class="doc-list" id="docList">
+    <!-- Example document -->
+    <div class="doc-card">
+        <a href="https://drive.google.com/file/d/1huiSRGG84X2v94urk4AelDoGteYdjjTx/preview" target="_blank">
+            Black Holes
+        </a>
+    </div>
+</div>
+
+
+<script>
+function filterDocs() {
+    const input = document.getElementById('search').value.toLowerCase();
+    const docs = document.querySelectorAll('.doc-card');
+    docs.forEach(doc => {
+        const text = doc.innerText.toLowerCase();
+        doc.style.display = text.includes(input) ? '' : 'none';
+    });
+}
+</script>
+
+</body>
+</html>
